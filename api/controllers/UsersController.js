@@ -87,7 +87,8 @@ const UsersController = ( ) => {
            }
 const loginUser=(req,res)=> {
     const body=req.body;
-    return sequelize.query('SELECT id, name, type, email, phoneNO, password, ethAddress, tyslinTotalBalance, isDeleted, createdAt, updatedAt      FROM MLM_tyslin.mlmUsers where phoneNO='+body.email_Phone+' OR email='+body.email_Phone+';    ',{raw:true,type: Sequelize.QueryTypes.SELECT})
+   
+    return sequelize.query('SELECT id, name, type, email, phoneNO, password, ethAddress, tyslinTotalBalance, isDeleted, createdAt, updatedAt  FROM MLM_tyslin.users   where  phoneNO=' +body.email_Phone+ '  OR email=' +body.email_Phone+ ';',{raw:true,type: Sequelize.QueryTypes.SELECT})
     .then((queryResponse)=>{
         console.log(queryResponse)
         if (queryResponse===undefined || queryResponse ==0 )
