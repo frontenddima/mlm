@@ -27,10 +27,11 @@ module.exports = {
     'GET/Transactions':'TransactionsController.GetCallsLog',
     'GET/Referral':'ReferralController.GetCallsLog',
     'GET/Bonuses':'BonusesController.GetCallsLog',
-   'POST /Users':'UsersController.newUserRegistration',
-   'POST /loginUser':'usersController.loginUser',  
+    'POST /Users':'UsersController.newUserRegistration',
+    'POST /loginUser':'usersController.loginUser',  
     'GET /test':'UsersController.test',
-    
+    'Post /purchaseCoins':'InvestmentController.purchaseTyslinCoins',
+    'POST /RootUserReferralsList':'ReferralController.getRootUserReferralsList'
  
     
 };

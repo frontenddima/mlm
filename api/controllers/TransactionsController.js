@@ -15,7 +15,7 @@ const TransactionsController = ()=>{
         })
     
     }
-    
+       
 }
 
 module.exports=TransactionsController;

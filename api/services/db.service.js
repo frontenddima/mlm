@@ -53,7 +53,7 @@ const dbService = (environment, migrate) => {
                     return startMigrateTrue();
                 }
                 //start for the first time drops all the table if exist and add new 
-                  return startMigrateFalse();
+                 //return startMigrateFalse();
             })
     );
 

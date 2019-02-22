@@ -25,25 +25,26 @@ const UsersController = ( ) => {
                         const template = {
                             password: body.password
                         }
-                        
                             if(!users)
                             {
                                 return User
                                 .create({ 
                                     name:body.name,
-                                    type:body.type,
+                                    type:"Root",
                                     email:body.email,
                                     phoneNO:body.phoneNO,
                                     password:bcryptService.password(template),
                                     ethAddress:body.ethAddress,
-                                    tyslinTotalBalance:body.tyslinTotalBalance,
+                                    TotalTyslinBalance:0,
+                                    TotalEhtereumBalance:0,
                                     isDeleted:0
+
                                 })
                                 .then((userRegistrationResponse) =>{
                                       console.log("userRegistrationResponse.id:"+userRegistrationResponse.id);
                                         return Referrals
                                         .create({
-                                            referralId:body.referralId,
+                                            rootUserId:body.rootUserId,
                                             user_id:userRegistrationResponse.id
                                         })
                                         .then((userReferralResponse) =>{
@@ -88,7 +89,7 @@ const UsersController = ( ) => {
 const loginUser=(req,res)=> {
     const body=req.body;
    
-    return sequelize.query('SELECT id, name, type, email, phoneNO, password, ethAddress, tyslinTotalBalance, isDeleted, createdAt, updatedAt  FROM MLM_tyslin.users   where  phoneNO=' +body.email_Phone+ '  OR email=' +body.email_Phone+ ';',{raw:true,type: Sequelize.QueryTypes.SELECT})
+    return sequelize.query('SELECT id, name, type, email, phoneNO, password, ethAddress, TotalTyslinBalance,TotalEhtereumBalance, isDeleted, createdAt, updatedAt  FROM MLM_tyslin.users   where  phoneNO=' +body.email_Phone+ '  OR email=' +body.email_Phone+ ';',{raw:true,type: Sequelize.QueryTypes.SELECT})
     .then((queryResponse)=>{
         console.log(queryResponse)
         if (queryResponse===undefined || queryResponse ==0 )
@@ -96,8 +97,22 @@ const loginUser=(req,res)=> {
             res.send("login failed please try again.");
         }
         else{
+
+            const returnPassword=queryResponse[0].password;
+            const comparePassword=     bcryptService.comparePassword(body.password,returnPassword)
+            if (comparePassword==false)
+            {
+            res.send("you have entered wrong password . please try again." )
+         
+            }
+            else
+            {
             res.send(queryResponse )
-        }
+            }
+
+            
+           
+        }       
 
         })
     .catch((error)=>{

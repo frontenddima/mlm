@@ -12,7 +12,7 @@ const Users = sequelize.define('users', {
     },
     type: {
         type: Sequelize.STRING,
-        unique: true,
+//        unique: true,
     },
     email: {
         type: Sequelize.STRING
@@ -26,7 +26,10 @@ const Users = sequelize.define('users', {
     ethAddress:{
         type:Sequelize.STRING
     },
-    tyslinTotalBalance:{
+    TotalTyslinBalance:{
+        type:Sequelize.DECIMAL
+    },
+    TotalEhtereumBalance:{
         type:Sequelize.DECIMAL
     },
     isDeleted:{

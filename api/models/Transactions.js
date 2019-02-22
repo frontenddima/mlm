@@ -12,10 +12,13 @@ const Transactions = sequelize.define('Transactions', {
     currencyType: {
         type: Sequelize.STRING
     },
-    ethTokensBalance: {
+    ethAmount: {
         type: Sequelize.STRING,
     },
     tyslinTokenBalance:{
+        type:Sequelize.STRING
+    },
+    status:{
         type:Sequelize.STRING
     }
 }, 

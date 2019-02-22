@@ -6,8 +6,8 @@ const tableName = 'Referrals';
 
 const Referral = sequelize.define('Referrals', {
         
-    referralId:{
-            type:Sequelize.STRING
+    rootUserId:{
+            type:Sequelize.INTEGER
         }
     }, 
     {  tableName });

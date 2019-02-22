@@ -1,0 +1,19 @@
+ localhost:3004/public/Users
+name:Abdullah 2
+//type:Root
+email:Abdullah2@ggg.com
+phoneNO:12345656
+password:1238
+ethAddress:ssssssssssssss
+//tyslinTotalBalance:QWERTYUIOP[OIUYTREWQ
+rootUserId:5
+----------------------------------------------------
+localhost:3004/public/loginUser
+email_Phone:123
+password:123123
+----------------------------------------------------
+localhost:3004/public/purchaseCoins
+user_id:5
+noOfEthererumInvest:10
+noOfTyslinPurchased:80
+----------------------------------------------------
