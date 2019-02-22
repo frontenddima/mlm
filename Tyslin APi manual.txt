@@ -1,3 +1,9 @@
+npm i
+npm run dev
+
+--------------------
+
+
  localhost:3004/public/Users
 name:Abdullah 2
 //type:Root
